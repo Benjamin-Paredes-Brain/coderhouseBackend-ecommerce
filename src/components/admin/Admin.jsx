@@ -11,7 +11,7 @@ export const Admin = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/users");
+                const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users");
                 if (response.status === 200) {
                     setUserData(response.data.payload);
                 }
@@ -26,7 +26,7 @@ export const Admin = () => {
 
     const handleDeleteUser = async (email) => {
         try {
-            const response = await axios.delete(`http://localhost:8080/api/users/email/${email}`);
+            const response = await axios.delete(`https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/email/${email}`);
             if (response.status === 200) {
                 await Swal.fire({
                     icon: 'success',
@@ -55,7 +55,7 @@ export const Admin = () => {
 
     const handleUpdateUserRole = async (email, role) => {
         try {
-            const response = await axios.put(`http://localhost:8080/api/users/role/${email}`, { role });
+            const response = await axios.put(`https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/role/${email}`, { role });
             if (response.status === 200) {
                 await Swal.fire({
                     icon: 'success',

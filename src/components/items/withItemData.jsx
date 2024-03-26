@@ -10,7 +10,7 @@ export const withItemData = (Component) => {
         useEffect(() => {
             const fetchData = async () => {
                 try {
-                    const response = await axios.get("http://localhost:8080/api/products");
+                    const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/products");
 
                     if (response.status === 200) {
                         setItemData(response.data.payload.docs);

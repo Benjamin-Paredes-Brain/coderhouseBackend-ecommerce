@@ -9,7 +9,7 @@ export const ItemList = withItemData(({ loading, itemData }) => {
     useEffect(() => {
         const fetchCurrentUser = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/users/current");
+                const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/current");
                 if (response.status === 200) {
                     setCid(response.data.payload.carts[0]);
                 }
@@ -23,7 +23,7 @@ export const ItemList = withItemData(({ loading, itemData }) => {
 
     const handleAddItem = async (pid) => {
         try {
-            await axios.post(`http://localhost:8080/api/carts/${cid}/product/${pid}`);
+            await axios.post(`https://coderhousebackend-ecommerce-api-production.up.railway.app/api/carts/${cid}/product/${pid}`);
             await Swal.fire({
                 icon: 'success',
                 title: 'Success',

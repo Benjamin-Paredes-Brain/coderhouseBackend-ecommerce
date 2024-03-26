@@ -20,7 +20,7 @@ export const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/api/users/register', formData, {
+            const response = await axios.post('https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/register', formData, {
                 headers: {
                     'Content-Type': 'application/json'
                 }

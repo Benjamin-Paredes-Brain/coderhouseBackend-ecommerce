@@ -22,7 +22,7 @@ export const Cart = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/users/cart");
+                const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/cart");
                 if (response.status === 200) {
                     setCartData(response.data.payload.products);
                     const initialQuantities = {};
@@ -43,7 +43,7 @@ export const Cart = () => {
 
     const updateQuantityInCart = async (cid, pid, quantity) => {
         try {
-            await axios.put(`http://localhost:8080/api/carts/quantity/${cid}/product/${pid}`, { quantity });
+            await axios.put(`https://coderhousebackend-ecommerce-api-production.up.railway.app/api/carts/quantity/${cid}/product/${pid}`, { quantity });
         } catch (error) {
             console.error("Error updating quantity in cart:", error);
         }
@@ -75,7 +75,7 @@ export const Cart = () => {
                 return;
             }
 
-            const response = await axios.post(`http://localhost:8080/api/carts/purchase/${cid}`);
+            const response = await axios.post(`https://coderhousebackend-ecommerce-api-production.up.railway.app/api/carts/purchase/${cid}`);
             if (response.status === 200) {
                 const purchasedTicket = response.data.ticket;
                 setTicket(purchasedTicket);
@@ -105,7 +105,7 @@ export const Cart = () => {
 
     const handleClearCart = async () => {
         try {
-            const response = await axios.delete(`http://localhost:8080/api/carts/${cid}`);
+            const response = await axios.delete(`https://coderhousebackend-ecommerce-api-production.up.railway.app/api/carts/${cid}`);
             if (response.status === 200) {
                 await Swal.fire({
                     icon: 'success',
@@ -121,7 +121,7 @@ export const Cart = () => {
 
     const handleDeleteProductFromCart = async (pid) => {
         try {
-            await axios.delete(`http://localhost:8080/api/carts/${cid}/product/${pid}`);
+            await axios.delete(`https://coderhousebackend-ecommerce-api-production.up.railway.app/api/carts/${cid}/product/${pid}`);
             window.location.reload()
         } catch (error) {
             console.error("Error clearing cart:", error);

@@ -12,7 +12,7 @@ export const Profile = () => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/users/profile");
+                const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/profile");
 
                 if (response.status === 200) {
                     setUserData(response.data.payload);

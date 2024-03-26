@@ -9,7 +9,7 @@ export const UserContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchCurrentUser = async () => {
             try {
-                const response = await axios.get("http://localhost:8080/api/users/current");
+                const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/current");
                 setCurrentUser(response.data.payload);
             } catch (error) {
                 console.error("Error fetching current user:", error);
