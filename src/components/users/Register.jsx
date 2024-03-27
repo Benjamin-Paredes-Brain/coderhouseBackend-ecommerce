@@ -99,6 +99,7 @@ export const Register = () => {
                             name="age"
                             value={formData.age}
                             onChange={handleChange}
+                            min={18}
                             required
                         />
                     </div>

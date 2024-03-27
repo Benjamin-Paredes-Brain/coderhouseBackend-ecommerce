@@ -3,7 +3,7 @@ import { withItemData } from "./withItemData";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-export const ItemList = withItemData(({ loading, itemData }) => {
+export const ItemList = withItemData(({ loading, itemData, prevLink, nextLink, fetchData }) => {
     const [cid, setCid] = useState(null);
 
     useEffect(() => {
@@ -47,6 +47,14 @@ export const ItemList = withItemData(({ loading, itemData }) => {
         }
     };
 
+    const handlePrevPage = () => {
+        fetchData(prevLink)
+    };
+
+    const handleNextPage = async () => {
+        fetchData(nextLink);
+    };
+
     if (loading) return <div>Loading...</div>;
     return (
         <div className='xl:mx-80'>
@@ -61,6 +69,10 @@ export const ItemList = withItemData(({ loading, itemData }) => {
                         </div>
                     ))
                 }
+            </div>
+            <div className="mt-4 flex justify-between">
+                {prevLink && <button className="button w-fit" onClick={handlePrevPage}>Previous Page</button>}
+                {nextLink && <button className="button w-fit" onClick={handleNextPage}>Next Page</button>}
             </div>
         </div>
     );
