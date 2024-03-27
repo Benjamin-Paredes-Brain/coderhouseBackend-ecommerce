@@ -12,7 +12,7 @@ export const Home = () => {
                     <Link to="/profile" className="border-gray-600 bg-gray-400 hover:bg-gray-500 input text-2xl font-bold">Profile</Link>
                     <p>*Para acceder aquí primero debes loguearte</p>
                 </div>
-                <Link to="/admin" className="border-gray-600 bg-gray-400 hover:bg-gray-500 input text-2xl font-bold">Products</Link>
+                <Link to="/products" className="border-gray-600 bg-gray-400 hover:bg-gray-500 input text-2xl font-bold">Products</Link>
                 <div>
                     <Link to="/cart" className="border-gray-600 bg-gray-400 hover:bg-gray-500 input text-2xl font-bold">Cart</Link>
                     <p>*Para acceder aquí primero debes loguearte</p>

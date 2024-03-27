@@ -9,6 +9,7 @@ export const Cart = () => {
     const [cartData, setCartData] = useState([]);
     const [cid, setCid] = useState(null);
     const [ticket, setTicket] = useState(null);
+    const [purchasedProducts, setPurchasedProducts] = useState(null)
     const [productQuantities, setProductQuantities] = useState({});
 
     const { currentUser } = useContext(UserContext);
@@ -79,6 +80,8 @@ export const Cart = () => {
             if (response.status === 200) {
                 const purchasedTicket = response.data.ticket;
                 setTicket(purchasedTicket);
+                const purchasedProducts = response.data.purchasedProducts
+                setPurchasedProducts(purchasedProducts)
                 await Swal.fire({
                     icon: 'success',
                     title: 'Success',
@@ -179,14 +182,26 @@ export const Cart = () => {
 
     if (ticket) {
         return (
-            <div>
-                <h3>Ticket info</h3>
-                <p>Code: {ticket.code}</p>
-                <p>Purchase Date: {ticket.purchase_datetime}</p>
-                <p>Amount: ${ticket.amount}</p>
-                <p>Purchaser: {ticket.purchaser}</p>
-                <Link className="border" to={"/"}>Go back</Link>
-            </div>
+            <>
+                <h3 className="title">Ticket info</h3>
+                <div className="border">
+                    <p>Code: {ticket.code}</p>
+                    <p>Purchase Date: {ticket.purchase_datetime}</p>
+                    <p>Amount: ${ticket.amount}</p>
+                    <p>Purchaser: {ticket.purchaser}</p>
+                    <Link className="border" to={"/"}>Go back</Link>
+                </div>
+
+                <h4>Purchased products:</h4>
+                {
+                    purchasedProducts.map((p) => (
+                        <div key={p.pid} className="border">
+                            <p>{p.title}</p>
+                            <p>{p.quantity}</p>
+                        </div>
+                    ))
+                }
+            </>
         );
     }
 
