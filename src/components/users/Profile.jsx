@@ -29,7 +29,7 @@ export const Profile = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post("http://localhost:8080/api/users/logout");
+            await axios.post("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/logout");
             await Swal.fire({
                 icon: 'success',
                 title: 'Success',
