@@ -183,24 +183,25 @@ export const Cart = () => {
     if (ticket) {
         return (
             <>
-                <h3 className="title">Ticket info</h3>
                 <div className="border">
-                    <p>Code: {ticket.code}</p>
-                    <p>Purchase Date: {ticket.purchase_datetime}</p>
-                    <p>Amount: ${ticket.amount}</p>
-                    <p>Purchaser: {ticket.purchaser}</p>
-                    <Link className="border" to={"/"}>Go back</Link>
+                    <h3 className="title">Ticket info</h3>
+                    <p> <strong>Code:</strong> {ticket.code}</p>
+                    <p> <strong>Purchase Date:</strong> {ticket.purchase_datetime}</p>
+                    <p> <strong>Amount:</strong> ${ticket.amount}</p>
+                    <p> <strong>Purchaser:</strong> {ticket.purchaser}</p>
                 </div>
 
-                <h4>Purchased products:</h4>
+                <h4 className="title">Purchased products:</h4>
                 {
                     purchasedProducts.map((p) => (
-                        <div key={p.pid} className="border">
-                            <p>{p.title}</p>
-                            <p>{p.quantity}</p>
+                        <div key={p.pid} className="input my-4">
+                            <p><strong>Title:</strong> {p.title}</p>
+                            <p><strong>Quantity:</strong> {p.quantity}</p>
                         </div>
                     ))
                 }
+
+                <Link className="button" to={"/"}>Go back</Link>
             </>
         );
     }
