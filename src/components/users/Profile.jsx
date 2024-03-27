@@ -12,7 +12,9 @@ export const Profile = () => {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/profile");
+                const response = await axios.get("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/profile", {
+                    withCredentials: true
+                })
 
                 if (response.status === 200) {
                     setUserData(response.data.payload);
@@ -29,7 +31,9 @@ export const Profile = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.post("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/logout");
+            await axios.post("https://coderhousebackend-ecommerce-api-production.up.railway.app/api/users/logout", {
+                withCredentials: true
+            })
             await Swal.fire({
                 icon: 'success',
                 title: 'Success',
